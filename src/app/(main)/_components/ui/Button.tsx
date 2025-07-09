@@ -1,7 +1,9 @@
 'use client'
+
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "outline";
   size?: "md" | "lg";
+  fullWidth?: boolean; // ✅ Handle this explicitly
   className?: string;
   children: React.ReactNode;
 }
@@ -9,6 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const ButtonMain = ({
   variant = "primary",
   size = "md",
+  fullWidth = false, // ✅ Default to false
   className = "",
   children,
   ...props
@@ -22,14 +25,16 @@ export const ButtonMain = ({
       "border-2 border-green-500 text-green-600 hover:bg-green-50 hover:border-green-600",
   };
   const sizes = {
-    md: "px-6 py-3 text-base",
-    lg: "px-8 py-4 text-lg",
+    md: "px-4 py-2 text-base",
+    lg: "px-4 py-2 text-lg",
   };
+
+  const widthClass = fullWidth ? "w-full" : "";
 
   return (
     <button
-      className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`}
-      {...props}
+      className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${widthClass} ${className}`}
+      {...props} // ✅ safe now — fullWidth not included
     >
       {children}
     </button>

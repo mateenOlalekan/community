@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MessageSquare, Users, TrendingUp, Search, Filter, ThumbsUp, MessageCircle, Share2, Bookmark } from 'lucide-react';
 import { Card, CardBody } from '../../_components/ui/Card';
-import { Button } from '../../_components/ui/Button';
+import { ButtonMain } from '../../_components/ui/Button';
 import { Badge } from '../../_components/ui/Badge';
 import { Avatar } from '../../_components/ui/Avatar';
 
@@ -110,11 +110,11 @@ export const CommunityForum = () => {
               />
             </div>
             <div className="flex space-x-2">
-              <Button variant="outline" className="flex items-center">
+              <ButtonMain variant="outline" className="flex items-center">
                 <Filter className="h-5 w-5 mr-2" />
                 Filters
-              </Button>
-              <Button>Start Discussion</Button>
+              </ButtonMain>
+              <ButtonMain>Start Discussion</ButtonMain>
             </div>
           </div>
 
@@ -139,6 +139,7 @@ export const CommunityForum = () => {
         {/* Forum Posts */}
         <div className="space-y-6">
           {mockPosts.map((post) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Card key={post.id} hoverable className="overflow-hidden">
               <CardBody>
                 <div className="flex items-start space-x-4">
@@ -195,14 +196,15 @@ export const CommunityForum = () => {
                 </div>
               </CardBody>
             </Card>
+            </div>
           ))}
         </div>
 
         {/* Load More Button */}
         <div className="mt-8 text-center">
-          <Button variant="outline" size="lg">
+          <ButtonMain variant="outline" size="lg">
             Load More Discussions
-          </Button>
+          </ButtonMain>
         </div>
       </div>
     </div>

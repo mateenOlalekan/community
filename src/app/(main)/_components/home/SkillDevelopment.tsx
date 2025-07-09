@@ -21,14 +21,14 @@ export const SkillDevelopment: React.FC<SkillDevelopmentProps> = ({ resources })
   return (
     <section className="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-1">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Develop Your Skills</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Access high-quality learning resources to improve your skills and increase your job prospects.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <div className="bg-white rounded-lg shadow-md p-6 mb-6">
               <h3 className="text-xl font-semibold mb-4">Popular Skill Categories</h3>
@@ -62,9 +62,9 @@ export const SkillDevelopment: React.FC<SkillDevelopmentProps> = ({ resources })
             </div>
           </div>
 
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1 md:col-span-3">
             <h3 className="text-xl font-semibold mb-4">Recommended Learning Resources</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {resources.map((resource) => (
                 <Card key={resource.id} hoverable className="overflow-hidden h-full flex flex-col">
                   <CardBody className="flex flex-col h-full">

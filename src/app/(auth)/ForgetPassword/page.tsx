@@ -1,22 +1,22 @@
-'use client'; // This makes the entire page a Client Component
-
-import { useState, FormEvent } from 'react';
-import { Mail, ArrowLeft, CheckCircle, Briefcase } from 'lucide-react';
+'use client'
+import { useState } from 'react';
 import { Card, CardBody } from '../../(main)/_components/ui/Card';
 import { ButtonMain } from '../../(main)/_components/ui/Button';
+import { Mail, ArrowLeft, CheckCircle, Briefcase } from 'lucide-react';
 import { AnimatedCard } from '../../(main)/_components/ui/AnimatedCard';
 import { GradientText } from '../../(main)/_components/ui/GradientText';
 import { FloatingElements } from '../../(main)/_components/ui/FloatingElements';
 
-
-export default function ForgotPassword() {
+export const ForgotPassword: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    
+    // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
       setIsSubmitted(true);
@@ -26,9 +26,11 @@ export default function ForgotPassword() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-teal-50 relative overflow-hidden">
       <FloatingElements />
-
+      
       <div className="flex items-center justify-center min-h-screen py-12 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-md w-full">
+          
+          {/* Header */}
           <AnimatedCard delay={200}>
             <div className="text-center mb-8">
               <div className="flex justify-center mb-6">
@@ -40,13 +42,15 @@ export default function ForgotPassword() {
                 {isSubmitted ? 'Check Your Email' : 'Forgot Password?'}
               </h2>
               <p className="text-gray-600">
-                {isSubmitted
-                  ? "We've sent password reset instructions to your email"
-                  : "No worries! Enter your email and we'll send you reset instructions"}
+                {isSubmitted 
+                  ? 'We\'ve sent password reset instructions to your email'
+                  : 'No worries! Enter your email and we\'ll send you reset instructions'
+                }
               </p>
             </div>
           </AnimatedCard>
 
+          {/* Form or Success Message */}
           <AnimatedCard delay={400}>
             <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm">
               <CardBody className="p-8">
@@ -74,8 +78,9 @@ export default function ForgotPassword() {
                       </div>
                     </div>
 
-                    <ButtonMain
-                      type="submit"
+                    <ButtonMain 
+                      type="submit" 
+                      fullWidth 
                       size="lg"
                       disabled={isLoading}
                       className="bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 transform hover:scale-105 transition-all duration-300 shadow-lg font-semibold"
@@ -97,7 +102,7 @@ export default function ForgotPassword() {
                         <CheckCircle className="h-12 w-12 text-green-600" />
                       </div>
                     </div>
-
+                    
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Sent!</h3>
                       <p className="text-gray-600 mb-4">
@@ -109,18 +114,20 @@ export default function ForgotPassword() {
                     </div>
 
                     <div className="space-y-3">
-                      <ButtonMain
+                      <ButtonMain 
+                        fullWidth 
                         size="lg"
                         onClick={() => setIsSubmitted(false)}
                         className="bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 transform hover:scale-105 transition-all duration-300 shadow-lg font-semibold"
                       >
                         Try Different Email
                       </ButtonMain>
-
-                      <ButtonMain
-                        variant="outline"
+                      
+                      <ButtonMain 
+                        variant="outline" 
+                        fullWidth 
                         size="lg"
-                        onClick={() => (window.location.href = '/login')}
+                        onClick={() => window.location.href = '/login'}
                         className="hover:shadow-lg transition-all duration-300"
                       >
                         <ArrowLeft className="mr-2 h-5 w-5" />
@@ -133,11 +140,12 @@ export default function ForgotPassword() {
             </Card>
           </AnimatedCard>
 
+          {/* Back to Login Link */}
           {!isSubmitted && (
             <AnimatedCard delay={600}>
               <div className="text-center mt-6">
-                <a
-                  href="/login"
+                <a 
+                  href="/login" 
                   className="inline-flex items-center text-blue-600 hover:text-blue-500 font-medium transition-colors"
                 >
                   <ArrowLeft className="mr-2 h-4 w-4" />
@@ -147,6 +155,7 @@ export default function ForgotPassword() {
             </AnimatedCard>
           )}
 
+          {/* Help Section */}
           <AnimatedCard delay={800}>
             <div className="mt-8 text-center">
               <Card className="bg-gradient-to-r from-blue-50 to-teal-50 border-blue-200">
@@ -166,4 +175,4 @@ export default function ForgotPassword() {
       </div>
     </div>
   );
-}
+};

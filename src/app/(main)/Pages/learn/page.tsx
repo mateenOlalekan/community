@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardBody } from '../../_components/ui/Card';
-import { Button } from '../../_components/ui/Button';
+import { ButtonMain } from '../../_components/ui/Button';
 import { BookOpen, Video, Users, Award } from 'lucide-react';
 
 export const SkillDevelopment = () => {
@@ -58,7 +58,7 @@ export const SkillDevelopment = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <Button size="lg">Browse Courses</Button>
+              <ButtonMain size="lg">Browse Courses</ButtonMain>
             </div>
           </CardBody>
         </Card>

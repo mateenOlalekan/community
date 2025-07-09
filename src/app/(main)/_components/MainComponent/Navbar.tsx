@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Search, Bell, Briefcase, BookOpen, Users, ChevronDown, HelpCircle, Star } from 'lucide-react';
 import {ButtonMain} from '../ui/Button';
 import { Avatar } from '../ui/Avatar';
+import Link from 'next/link';
 
 interface NavbarProps {
   userLoggedIn?: boolean;
@@ -93,10 +94,10 @@ export const Navbar = ({ userLoggedIn, userName, userAvatar }: NavbarProps) => {
       icon: <Users className="h-4 w-4" />,
       dropdown: true,
       dropdownItems: [
-        { name: 'Search Candidates', href: '/talent/search', description: 'Find qualified professionals' },
-        { name: 'Post a Job', href: '/talent/post-job', description: 'Attract top talent' },
-        { name: 'Recruitment Solutions', href: '/talent/solutions', description: 'Enterprise hiring tools' },
-        { name: 'Employer Resources', href: '/talent/resources', description: 'Hiring guides and tips' }
+        { name: 'Search Candidates', href: '/talent/searchCandidates', description: 'Find qualified professionals' },
+        { name: 'Post a Job', href: '/talent/postaJob', description: 'Attract top talent' },
+        { name: 'Recruitment Solutions', href: '/talent/recruitmentSolutions', description: 'Enterprise hiring tools' },
+        { name: 'Employer Resources', href: '/talent/employerResources', description: 'Hiring guides and tips' }
       ]
     },
     { 
@@ -126,9 +127,11 @@ export const Navbar = ({ userLoggedIn, userName, userAvatar }: NavbarProps) => {
           <div className="flex items-center">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center group">
-              <div className="bg-gradient-to-r from-green-600 to-green-500 p-2 rounded-xl mr-3 group-hover:scale-110 transition-transform duration-300">
-                <Briefcase className="h-6 w-6 text-white" />
-              </div>
+              <Link href="/">
+                <div className="bg-gradient-to-r from-green-600 to-green-500 p-2 rounded-xl mr-3 group-hover:scale-110 transition-transform duration-300">
+                  <Briefcase className="h-6 w-6 text-white" />
+                </div>
+              </Link>
               <span className="text-xl font-bold bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent">
                 Career
               </span>
@@ -161,7 +164,7 @@ export const Navbar = ({ userLoggedIn, userName, userAvatar }: NavbarProps) => {
                           {item.name} Resources
                         </h3>
                         {item.dropdownItems?.map((dropdownItem) => (
-                          <a
+                          <Link
                             key={dropdownItem.name}
                             href={dropdownItem.href}
                             className="group flex items-center px-3 py-3 text-sm rounded-lg hover:bg-green-50 transition-colors"
@@ -174,7 +177,7 @@ export const Navbar = ({ userLoggedIn, userName, userAvatar }: NavbarProps) => {
                                 {dropdownItem.description}
                               </p>
                             </div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -204,7 +207,7 @@ export const Navbar = ({ userLoggedIn, userName, userAvatar }: NavbarProps) => {
               <div className="flex items-center space-x-3">
                 {/* Premium Button */}
                 <ButtonMain 
-                  variant="ghost" 
+                  variant="outline" 
                   className="hidden lg:flex items-center text-sm font-medium text-amber-700 hover:bg-amber-50 rounded-lg px-3 py-2 transition-colors border border-amber-200"
                 >
                   <Star className="h-4 w-4 mr-1 fill-amber-400" />
@@ -229,18 +232,16 @@ export const Navbar = ({ userLoggedIn, userName, userAvatar }: NavbarProps) => {
                 </div>
               </div>
             ) : (
-              <div className="flex space-x-3">
-                <ButtonMain 
-                  variant="outline" 
-                  className="hover:bg-green-50 hover:border-green-300 hover:text-green-600 transition-all duration-300"
-                >
-                  Log In
-                </ButtonMain>
+<div className="flex space-x-4 items-center">
+  <Link href="/login"  className="px-5 py-2 rounded-md border border-gray-300 text-gray-700 hover:border-green-500 hover:text-green-600 hover:bg-green-50 transition-all duration-300 text-sm font-medium">
+      Log In
+  </Link>
 
-                <ButtonMain className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-green-200">
-                  Sign Up
-                </ButtonMain>
-              </div>
+  <Link href="/register"  className="px-5 py-2 rounded-md bg-gradient-to-r from-green-600 to-green-500 text-white hover:from-green-700 hover:to-green-600 hover:shadow-md transform hover:scale-105 transition-all duration-300 text-sm font-medium shadow" >
+      Sign Up
+  </Link>
+</div>
+
             )}
           </div>
           
@@ -324,7 +325,7 @@ export const Navbar = ({ userLoggedIn, userName, userAvatar }: NavbarProps) => {
                   {item.dropdown && activeDropdown === item.name && (
                     <div className="ml-8 mt-1 space-y-2">
                       {item.dropdownItems?.map((dropdownItem) => (
-                        <a
+                        <Link
                           key={dropdownItem.name}
                           href={dropdownItem.href}
                           className="block px-3 py-3 text-sm rounded-lg hover:bg-green-50 transition-colors border-l-2 border-green-100"
@@ -332,7 +333,7 @@ export const Navbar = ({ userLoggedIn, userName, userAvatar }: NavbarProps) => {
                         >
                           <p className="font-medium text-gray-900">{dropdownItem.name}</p>
                           <p className="text-xs text-gray-500 mt-1">{dropdownItem.description}</p>
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -361,14 +362,12 @@ export const Navbar = ({ userLoggedIn, userName, userAvatar }: NavbarProps) => {
               <div className="space-y-3">
                 <ButtonMain 
                   variant="outline" 
-                  
                   className="hover:bg-green-50 hover:border-green-300 hover:text-green-600"
                   onClick={closeMobileMenu}
                 >
                   Log In
                 </ButtonMain>
                 <ButtonMain 
-                   
                   className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600"
                   onClick={closeMobileMenu}
                 >

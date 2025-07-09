@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { TrendingUp, Award, Clock, DollarSign } from 'lucide-react';
 import { Card, CardBody } from '../ui/Card';
-import { Button } from '../ui/Button';
+import { ButtonMain } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { CareerPath } from '../../_types/index';
 
@@ -23,10 +23,10 @@ export const CareerPathways: React.FC<CareerPathwaysProps> = ({ careerPaths }) =
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-1">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div className="lg:col-span-2">
             <h3 className="text-xl font-semibold mb-4">Popular Career Paths</h3>
-            <div className="space-y-3">
+            <div className="space-y-3 grid grid-cols-2">
               {careerPaths.map((path) => (
                 <button
                   key={path.id}
@@ -128,13 +128,13 @@ export const CareerPathways: React.FC<CareerPathwaysProps> = ({ careerPaths }) =
                   </div>
 
                   <div className="mt-6 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
-                    <Button size="lg">Start This Path</Button>
-                    <Button variant="outline" size="lg">Find Related Jobs</Button>
+                    <ButtonMain size="lg">Start This Path</ButtonMain>
+                    <ButtonMain variant="outline" size="lg">Find Related Jobs</ButtonMain>
                   </div>
                 </CardBody>
               </Card>
             ) : (
-              <div className="flex flex-col items-center justify-center h-full bg-gray-50 rounded-lg p-8 text-center">
+              <div className="flex flex-col items-center justify-center border-2 border-gray-300 h-full bg-g rounded-lg p-8 text-center">
                 <div className="mb-4">
                   <Award className="h-16 w-16 text-gray-300" />
                 </div>
