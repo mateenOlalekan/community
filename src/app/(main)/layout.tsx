@@ -25,8 +25,8 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${jost.variable} `}>
-      <body className="antialiased font-jost">
+    <html lang="en" className={`${jost.variable} `} suppressHydrationWarning={true}>
+      <body className="antialiased font-jost" suppressHydrationWarning={true}>
         <Navbar />
         {children}
         <Footer />

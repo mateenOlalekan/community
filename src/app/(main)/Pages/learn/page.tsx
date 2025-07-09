@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { Card, CardBody } from '../../_components/ui/Card';
 import { ButtonMain } from '../../_components/ui/Button';
