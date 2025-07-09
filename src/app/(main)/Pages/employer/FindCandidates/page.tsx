@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { Search, Filter, MapPin, Star, Download, Eye, MessageSquare, Bookmark } from 'lucide-react';
 import { Card, CardBody, CardHeader } from '../../../_components/ui/Card';
