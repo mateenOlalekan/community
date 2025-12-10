@@ -2,7 +2,7 @@
 'use client'
 import React, { useState } from 'react';
 import { Card, CardBody } from '../../_components/ui/Card';
-import { Button } from '../../_components/ui/Button';
+import  Button  from '../../_components/ui/Button';
 import { Badge } from '../../_components/ui/Badge';
 import { Avatar } from '../../_components/ui/Avatar';
 import { Quote, TrendingUp, Clock, MapPin, Briefcase, Star } from 'lucide-react';

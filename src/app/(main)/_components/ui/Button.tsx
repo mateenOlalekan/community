@@ -8,14 +8,14 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-export const ButtonMain = ({
+export default function ButtonMain ({
   variant = "primary",
   size = "md",
   fullWidth = false, // ✅ Default to false
   className = "",
   children,
   ...props
-}: ButtonProps) => {
+}: ButtonProps) {
   const baseClasses =
     "font-semibold rounded-xl transition-all duration-200 flex items-center justify-center";
   const variants = {

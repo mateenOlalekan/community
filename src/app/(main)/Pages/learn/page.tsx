@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { Card, CardBody } from '../../_components/ui/Card';
-import { ButtonMain } from '../../_components/ui/Button';
+import  ButtonMain  from '../../_components/ui/Button';
 import { BookOpen, Video, Users, Award } from 'lucide-react';
 
 export const SkillDevelopment = () => {

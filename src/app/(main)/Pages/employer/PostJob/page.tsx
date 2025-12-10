@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { Card, CardBody, CardHeader } from '../../../_components/ui/Card';
-import { Button } from '../../../_components/ui/Button';
+import  Button  from '../../../_components/ui/Button';
 import { Badge } from '../../../_components/ui/Badge';
 import { MapPin, Briefcase, DollarSign, Clock, Users, Plus, X } from 'lucide-react';
 

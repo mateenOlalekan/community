@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardBody } from '../../../_components/ui/Card';
-import { Button } from '../../../_components/ui/Button';
+import  Button  from '../../../_components/ui/Button';
 import { Brain, Target, Clock, Award } from 'lucide-react';
 
 export const CareerAssessment = () => {

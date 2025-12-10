@@ -1,10 +1,10 @@
 'use client'
 import React, { useState } from 'react';
 import { Search, MapPin, Briefcase, Filter, SlidersHorizontal } from 'lucide-react';
-import { Card, CardBody } from '../../_components/ui/Card';
-import { Button } from '../../_components/ui/Button';
-import { Badge } from '../../_components/ui/Badge';
-import { mockJobs } from '../../data/mockData';
+import { Card, CardBody } from '../../../_components/ui/Card';
+import Button from '../../../_components/ui/Button';
+import { Badge } from '../../../_components/ui/Badge';
+import { mockJobs } from '../../../data/mockData';
 
 export const BrowseJobs = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -55,7 +55,7 @@ export const BrowseJobs = () => {
               onChange={(e) => setLocation(e.target.value)}
             />
           </div>
-          <Button className="flex items-center justify-center">
+          <Button variant="outline" size="md" className="flex items-center justify-center">
             <Search className="w-5 h-5 mr-2" />
             Search Jobs
           </Button>
@@ -70,7 +70,7 @@ export const BrowseJobs = () => {
               <div className="mb-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold">Filters</h3>
-                  <Button variant="ghost" size="sm" className="text-sm">
+                  <Button variant="outline" size="md" className="text-sm">
                     Clear all
                   </Button>
                 </div>
@@ -216,8 +216,12 @@ export const BrowseJobs = () => {
                       Posted {new Date(job.postedDate).toLocaleDateString()}
                     </span>
                     <div className="space-x-2">
-                      <Button variant="outline" size="sm">Save Job</Button>
-                      <Button size="sm">Apply Now</Button>
+                      <Button variant="outline" size="md" className="rounded-full border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors duration-200 shadow-sm hover:shadow-md hover:text-gray-800 hover:border-gray-400">
+                        Save Job
+                      </Button>
+                      <Button variant="outline" size="md" className="rounded-full border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors duration-200 shadow-sm hover:shadow-md hover:text-gray-800 hover:border-gray-400">
+                        Apply Now
+                      </Button>
                     </div>
                   </div>
                 </CardBody>
